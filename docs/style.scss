@@ -1,0 +1,181 @@
+body { 
+    margin: 0px; 
+    background-color: #D8F3D3;
+}
+
+.container {
+    margin: 0 55px;
+}
+
+//Navbar
+nav {
+    vertical-align: middle;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+    background-color: #fff;
+    
+    .nav {
+        position: relative;
+        font-family: 'rounded-mplus-2c-bold';
+        font-size: 26px;
+        width: 100%;
+        height: 120px;
+        ul {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform : translate(-50%,-50%);
+            transform : translate(-50%,-50%);
+            text-align: center;
+            margin:0 auto;
+            li {
+                display: inline-block;
+                a {
+                    cursor: pointer;
+                    position: relative;
+                    z-index: 1;
+                    text-decoration: none;
+                    color: #3E3E3E;
+                    &::after {
+                        content:"";
+                        width: 0%;    /*最初はwidth:0にする*/
+                        height: 12px;
+                        background: #75dc97;
+                        position: absolute;
+                        bottom: 2px;
+                        left: 0;
+                        z-index: -1;
+                        transition: all .3s;  /*アニメーションの長さ*/
+                    }
+                    &:hover::after {
+                        width: 100%;
+                    }
+                }
+            }
+            .naka {
+                padding: 0 80px;
+            }
+        }
+        button {
+            cursor: pointer;
+            position: absolute;
+            top: 26%;
+            left: 85%;
+            display: table-cell;
+            font-family: 'rounded-mplus-2c-bold';
+            font-size: 26px;
+            background-color: #fff;
+            color: #509768;
+            background-color: transparent;
+            padding: 8px 32px;
+            border-width:3px;
+            border-style: solid;
+            border-color: #509768;
+            transition:width 0.3s ease-in-out, height 0.3s ease-in-out;
+            &::before, &::after {
+                content:'';
+                display:block;
+                position:absolute;
+                border-color:#509768;
+                box-sizing:border-box;
+                border-style:solid;
+                //emはフォントサイズに応じて変化
+                width:1em;
+                height:1em;
+                //アニメーションの変化(要素、時間、変化の度合い)
+                transition:width 0.3s ease-in-out, height 0.3s ease-in-out;
+            }
+            //左上の「作成
+            &::before {
+                top:-8px;
+                left:-8px;
+                border-width:3px 0 0 3px;
+                z-index:5;
+            }
+            //右下の」作成
+            &::after {
+                bottom:-8px;
+                right:-8px;
+                border-width:0 3px 3px 0;
+            }
+            &:hover::before, &:hover::after {
+                width:calc(100% + 15px);
+                height:calc(100% + 15px);
+                border-color:#509768;
+            }
+            &:hover {
+                color:#fff;
+                background-color:#509768;
+                border-color:#509768;
+            }
+            &:active {
+                color:#509768;
+                background-color: #fff;
+                transition:all .1s ease-in-out;
+            }
+        }
+    }
+}
+
+//Title
+.title {
+    height: 264px;
+    width: 100%;
+    text-align: center;
+    img {
+        margin: 60px 0;
+        display: inline-block;
+    }
+}
+
+//Rwview
+.review {
+    height: 390px;
+    background-color: #fff;
+    margin-bottom: 27px;
+    &.favorite {
+        margin-bottom: 0;
+    }
+    .reviewTitle {
+        font-family: 'rounded-mplus-2c-bold';
+        font-size: 26px;
+        font-weight: 800;
+        padding: 35px 0 45px 39px;
+        a {
+            background: linear-gradient(transparent 60%, #84e9a6 60%);
+        }
+    }
+    .reviewList {
+        display: flex;
+        padding: 0 39px;
+        justify-content: center;
+        a {
+            text-decoration: none;
+            width: 270px;
+            height: 220px;
+            font-size: 14px;
+            padding: 10px;
+            img {
+                width:100%;
+            }
+        }
+        a:nth-child( n + 2 ) {
+            margin-left: 50px;
+        }
+    }
+}
+
+//Footer
+footer {
+    background-color: #fff;
+    height: 116px;
+    margin-top: 56px;
+    box-shadow: 0px -2px 2px rgba(0,0,0,0.4);
+    p {
+        font-family: 'Osaka';
+        font-size: 26px;
+        font-weight: 800;
+        text-align: center;
+        color: #3E3E3E;
+        line-height: 116px;
+    }
+}
